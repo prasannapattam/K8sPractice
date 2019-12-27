@@ -2,7 +2,7 @@
 docker build -t ehr/doctor .
 
 -- Run the image
-docker run -d -p 8080:80 --name doctor ehr/doctor
+docker run -d -p 8080:80 --name doctor ehr/doctor (-d run in background)
 docker run -p 8080:80 --name doctor ehr/doctor
 
 
@@ -28,4 +28,7 @@ docker ps -a – lists all the attached but not running containers
 -- Remove docker container
 docker rm <container_name> 
 docker rm $(docker ps -a -q) – removes all containers
+
+-- login into container
+docker exec -it 782ce39021a0 bash
 
