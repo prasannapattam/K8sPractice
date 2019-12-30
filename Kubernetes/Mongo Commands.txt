@@ -1,0 +1,11 @@
+db.createUser(
+  {
+    user: "doctor",
+    pwd:  "doctor",
+    roles: [ { role: "readWrite", db: "doctor" }]
+  }
+)
+
+
+db.createCollection("collection name")
+

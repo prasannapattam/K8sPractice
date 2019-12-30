@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: doctor-deployment
+    labels:
+        app: doctor
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: doctor
+    template:
+        metadata:
+            labels:
+                app: doctor
+        spec:
+            containers:
+                -   name: doctor
+                    image: ehr/doctor
+                    imagePullPolicy: IfNotPresent
+                    ports:
+                    -   containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: doctor-service
+spec:
+    selector:
+        app: doctor
+    type: LoadBalancer
+    ports:
+        -   name: doctor-port
+            port: 8081
+            targetPort: 80
