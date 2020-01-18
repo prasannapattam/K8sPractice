@@ -9,20 +9,16 @@ namespace Doctor.Controllers
     [Route("{controller=doctor}/{action=index}")]
     public class DoctorController : ControllerBase
     {
-        private readonly DoctorService doctorService;
+        private readonly DoctorMongoService doctorService;
 
-        public DoctorController(DoctorService doctorService)
+        public DoctorController(DoctorMongoService doctorService)
         {
             this.doctorService = doctorService;
         }
 
         public string Index()
         {
-            return "Regular Doctor";
-        }
-        public string GetDoctor()
-        {
-            return "Specialist Doctor";
+            return "Doctor Service Started";            
         }
 
         [HttpGet]

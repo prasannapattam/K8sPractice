@@ -1,42 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Doctor.Models;
 using Doctor.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Shared.Services;
 
 namespace Doctor
 {
-    public class Startup
+    public class Startup : SharedStartup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration) : base(configuration)
         {
-            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
-            // requires using Microsoft.Extensions.Options
-            services.Configure<DoctorDatabaseSettings>(
-                Configuration.GetSection(nameof(DoctorDatabaseSettings)));
+            services.AddSingleton<DoctorMongoService>();
 
-            services.AddSingleton<IDoctorDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<DoctorDatabaseSettings>>().Value);
-
-            services.AddSingleton<DoctorService>();
-
+            base.ConfigureServices(services);
             services.AddControllers();
         }
 
