@@ -1,9 +1,9 @@
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
+  .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 16px;
   }
 
   .card {
@@ -37,9 +37,4 @@
 
   .card-container .card:not(:last-child) {
     margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
   }
