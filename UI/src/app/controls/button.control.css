@@ -1,10 +1,11 @@
-.material-icons {
+.material-icons-outlined {
     height: 24px;
     width: auto;
     padding-right: 5px;
+    /* color: #888; */
 }
 
-.card-button {
-    height: 16px;
-    width: 100px;
+.mat-raised-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
 }

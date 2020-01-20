@@ -11,6 +11,10 @@ import { MenuItem } from './controls/menu.item';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorService } from './doctor/doctor.service';
 import { PatientService } from './patient/patient.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -25,7 +29,10 @@ import { PatientService } from './patient/patient.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     DoctorService,
