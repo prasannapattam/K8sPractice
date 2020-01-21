@@ -10,7 +10,6 @@ import { Doctor } from './doctor.model';
 })
 export class DoctorComponent {
   public doctors: Doctor[];
-  public displayedColumns: string[] = ['name', 'speciality'];
 
   constructor(private service: DoctorService) { 
     this.doctors = service.getDoctors()
