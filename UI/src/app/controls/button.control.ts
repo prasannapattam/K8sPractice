@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'button-control',
@@ -9,4 +9,10 @@ export class ButtonControl {
   @Input() text: string;
   @Input() icon: string;
   @Input() color: string;
+
+  // @Output() click: EventEmitter<any> = new EventEmitter();
+
+  // clickEvent() {
+  //   this.click.emit(null);
+  // }
 }

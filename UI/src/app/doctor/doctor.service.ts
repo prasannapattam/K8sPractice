@@ -10,4 +10,19 @@ export class DoctorService {
     getDoctors(): Doctor[]  {
         return this.doctors;
     }
+
+    addDoctor(doctor: Doctor) {
+        doctor.id = Math.random().toString();
+        this.doctors.push(doctor);
+    }
+
+    updateDoctor(doctor: Doctor) {
+        // for now do nothing
+    }
+
+    deleteDoctor(doctor: Doctor): void {
+        this.doctors = this.doctors.filter((value,key)=>{
+            return value.id != doctor.id;
+          });
+    }
 }
