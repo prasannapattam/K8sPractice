@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DoctorDialogComponent } from './doctor.dialog.component';
 import { MatTable } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'doctor',
@@ -41,19 +42,22 @@ export class DoctorComponent {
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined) {
         Object.assign(doctor, result);
+        let req: Observable<Doctor[]>;
         switch(action) {
           case "add":
-            this.service.addDoctor(doctor);
+            req = this.service.addDoctor(doctor);
             break;
           case "edit":
-            this.service.updateDoctor(doctor);
+            req = this.service.updateDoctor(doctor);
             break;
           case  "delete":
-            this.service.deleteDoctor(doctor);
+            req = this.service.deleteDoctor(doctor);
             break;
         }
-        this.table.dataSource = this.service.getDoctors();
-        this.table.renderRows();
+        req.subscribe(doctors => {
+          this.table.dataSource = doctors;
+          this.table.renderRows();
+          });
       }
     });
   }

@@ -1,3 +1,10 @@
+Running locally.
+cmd to this folder
+mongod.exe --config="mongo.config"
+or run MongoServer.bat
+
+
+
 db.createUser(
   {
     user: "doctor",

@@ -19,24 +19,24 @@ namespace Shared.Services
         }
 
         public List<TModel> Get() =>
-            collection.Find(doctor => true).ToList();
+            collection.Find(m => true).ToList();
 
         public TModel Get(string id) =>
-            collection.Find<TModel>(doctor => doctor.Id == id).FirstOrDefault();
+            collection.Find<TModel>(m => m.Id == id).FirstOrDefault();
 
-        public TModel Create(TModel doctor)
+        public TModel Create(TModel model)
         {
-            collection.InsertOne(doctor);
-            return doctor;
+            collection.InsertOne(model);
+            return model;
         }
 
-        public void Update(string id, TModel doctorIn) =>
-            collection.ReplaceOne(doctor => doctor.Id == id, doctorIn);
+        public void Update(string id, TModel model) =>
+            collection.ReplaceOne(m => m.Id == id, model);
 
-        public void Remove(TModel doctorIn) =>
-            collection.DeleteOne(doctor => doctor.Id == doctorIn.Id);
+        public void Remove(TModel model) =>
+            collection.DeleteOne(m => m.Id == model.Id);
 
         public void Remove(string id) =>
-            collection.DeleteOne(doctor => doctor.Id == id);
+            collection.DeleteOne(m => m.Id == id);
     }
 }

@@ -9,11 +9,11 @@ namespace Doctor.Controllers
     [Route("{controller=doctor}/{action=index}")]
     public class DoctorController : ControllerBase
     {
-        private readonly DoctorMongoService doctorService;
+        private readonly DoctorMongoService service;
 
         public DoctorController(DoctorMongoService doctorService)
         {
-            this.doctorService = doctorService;
+            this.service = doctorService;
         }
 
         public string Index()
@@ -21,8 +21,32 @@ namespace Doctor.Controllers
             return "Doctor Service Started";            
         }
 
-        [HttpGet]
-        public ActionResult<List<DoctorModel>> GetAll() =>
-            doctorService.Get();
+        [HttpPost]
+        public List<DoctorModel> GetAll() =>
+            service.Get();
+
+        [HttpPost]
+        public DoctorModel Get(string id) => service.Get(id);
+
+        [HttpPost]
+        public List<DoctorModel> Add(DoctorModel model)
+        {
+            service.Create(model); 
+            return GetAll();
+        }
+
+        [HttpPost]
+        public List<DoctorModel> Update(DoctorModel model)
+        {
+            service.Update(model.Id, model);
+            return GetAll();
+        }
+
+        [HttpPost]
+        public List<DoctorModel> Delete(DoctorModel model)
+        {
+            service.Remove(model.Id);
+            return GetAll();
+        }
     }
 }

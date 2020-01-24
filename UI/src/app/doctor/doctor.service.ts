@@ -1,28 +1,30 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { Injectable } from '@angular/core';
+
 import { Doctor } from "./doctor.model"
+import { environment } from 'src/environments/environment';
 
 
+@Injectable()
 export class DoctorService {
-    private doctors: Doctor[] = [
-        { id: '1', name: 'Praval', speciality: 'Surgeon' },
-        { id: '2', name: 'Prakul', speciality: 'Physician' },
-    ]
+    private api: string = environment.doctorAPI;
 
-    getDoctors(): Doctor[]  {
-        return this.doctors;
+    constructor(private http: HttpClient) { }
+        
+    getDoctors(): Observable<Doctor[]>  {
+        return this.http.post<Doctor[]>(this.api + '/doctor/getall', {});
     }
 
-    addDoctor(doctor: Doctor) {
-        doctor.id = Math.random().toString();
-        this.doctors.push(doctor);
+    addDoctor(doctor: Doctor): Observable<Doctor[]> {
+        return this.http.post<Doctor[]>(this.api + '/doctor/add', doctor)
     }
 
-    updateDoctor(doctor: Doctor) {
-        // for now do nothing
+    updateDoctor(doctor: Doctor): Observable<Doctor[]> {
+        return this.http.post<Doctor[]>(this.api + '/doctor/update', doctor)
     }
 
-    deleteDoctor(doctor: Doctor): void {
-        this.doctors = this.doctors.filter((value,key)=>{
-            return value.id != doctor.id;
-          });
+    deleteDoctor(doctor: Doctor): Observable<Doctor[]> {
+        return this.http.post<Doctor[]>(this.api + '/doctor/delete', doctor)
     }
 }
