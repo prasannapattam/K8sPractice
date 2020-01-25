@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,10 @@ import { PatientService } from './patient/patient.service';
 import { PatientResolve } from './patient/patient.resolve';
 import { PatientDialogComponent } from './patient/patient.dialog.component';
 
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentResolve } from './appointment/appointment.resolve';
+import { AppointmentDialogComponent } from './appointment/appointment.dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { PatientDialogComponent } from './patient/patient.dialog.component';
     DoctorDialogComponent,
     PatientComponent,
     PatientDialogComponent,
+    AppointmentComponent,
+    AppointmentDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,13 +59,16 @@ import { PatientDialogComponent } from './patient/patient.dialog.component';
   ],
   entryComponents: [
     DoctorDialogComponent,
-    PatientDialogComponent
+    PatientDialogComponent,
+    AppointmentDialogComponent
   ],
   providers: [
     DoctorService,
     DoctorResolve,
     PatientService,
     PatientResolve,
+    AppointmentService,
+    AppointmentResolve,
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   doctorAPI: 'https://localhost:44332',
   patientAPI: 'https://localhost:44376',
+  appointmentAPI: 'https://localhost:44359'
 };
 
 /*

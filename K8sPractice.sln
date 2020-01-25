@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{DB2D478C-DE6A-4451-A0B9-90DCD66EBF22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appointment", "Appointment\Appointment.csproj", "{7E7904B1-F75A-4129-B1EF-F21B756EAFFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{DB2D478C-DE6A-4451-A0B9-90DCD66EBF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB2D478C-DE6A-4451-A0B9-90DCD66EBF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB2D478C-DE6A-4451-A0B9-90DCD66EBF22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7904B1-F75A-4129-B1EF-F21B756EAFFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7904B1-F75A-4129-B1EF-F21B756EAFFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7904B1-F75A-4129-B1EF-F21B756EAFFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7904B1-F75A-4129-B1EF-F21B756EAFFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ namespace Patient
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<PatientMongoService>();
+            services.AddSingleton<PatientService>();
 
             base.ConfigureServices(services);
             services.AddControllers();

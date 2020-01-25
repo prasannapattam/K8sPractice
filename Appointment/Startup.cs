@@ -1,4 +1,4 @@
-using Doctor.Services;
+using Appointment.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shared.Services;
 
-namespace Doctor
+namespace Appointment
 {
     public class Startup : SharedStartup
     {
@@ -16,7 +16,7 @@ namespace Doctor
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<DoctorService>();
+            services.AddSingleton<AppointmentService>();
 
             base.ConfigureServices(services);
             services.AddControllers();

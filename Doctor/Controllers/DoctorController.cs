@@ -9,11 +9,11 @@ namespace Doctor.Controllers
     [Route("{controller=doctor}/{action=index}")]
     public class DoctorController : ControllerBase
     {
-        private readonly DoctorMongoService service;
+        private readonly DoctorService service;
 
-        public DoctorController(DoctorMongoService doctorService)
+        public DoctorController(DoctorService service)
         {
-            this.service = doctorService;
+            this.service = service;
         }
 
         public string Index()

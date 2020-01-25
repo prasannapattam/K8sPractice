@@ -1,0 +1,30 @@
+<h1 mat-dialog-title *ngIf="this.appointment.action == 'add'">Add Appointment</h1>
+<h1 mat-dialog-title *ngIf="this.appointment.action == 'edit'">Edit Appointment</h1>
+<h1 mat-dialog-title *ngIf="this.appointment.action == 'delete'">Delete Appointment</h1>
+<form novalidate [formGroup]="form">
+    <div mat-dialog-content>
+        <mat-form-field formGroupName="patient">
+            <input matInput placeholder="Patient Name" formControlName="name">
+            <mat-error *ngIf="form.controls['patient'].controls['name'].hasError('required')">
+                Patient Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>    
+        <mat-form-field formGroupName="doctor">
+            <input matInput placeholder="Doctor Name" formControlName="name">
+            <mat-error *ngIf="form.controls['doctor'].controls['name'].hasError('required')">
+                Doctor Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>    
+        <mat-form-field>
+            <input matInput type="date" placeholder="Appointment Date" formControlName="appointmentDate">
+            <mat-error *ngIf="form.controls['appointmentDate'].hasError('required')">
+                Appointment Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>    
+    </div>
+    <div mat-dialog-actions>
+        <button-control text="Save" icon="save" color="primary" (click)="onSave()" *ngIf="this.appointment.action != 'delete'"></button-control>
+        <button-control text="Delete" icon="delete" color="warn" (click)="onSave()" *ngIf="this.appointment.action == 'delete'"></button-control>
+        <button-control text="Cancel" icon="cancel" (click)="onCancel()"></button-control>
+    </div>
+</form>
