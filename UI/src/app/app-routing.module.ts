@@ -29,9 +29,9 @@ const routes: Routes = [
     path: 'appointment', 
     component: AppointmentComponent,
     resolve: {
-      appointments: AppointmentResolve
+      appointmentViewModel: AppointmentResolve
     }
-  },
+  }
 ];
 
 @NgModule({

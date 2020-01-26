@@ -38,3 +38,8 @@
     justify-content: center;
     margin-top: 16px;
   }
+
+footer {
+  display: flex;
+  justify-content: center;
+}

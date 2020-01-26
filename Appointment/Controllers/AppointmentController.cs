@@ -26,6 +26,10 @@ namespace Appointment.Controllers
             service.Get();
 
         [HttpPost]
+        public AppointmentViewModel GetViewModel() =>
+            service.GetViewModel();
+
+        [HttpPost]
         public AppointmentModel Get(string id) => service.Get(id);
 
         [HttpPost]

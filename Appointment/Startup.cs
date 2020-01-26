@@ -1,9 +1,12 @@
+using Appointment.Models;
 using Appointment.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using Shared.Services;
 
 namespace Appointment
@@ -17,6 +20,12 @@ namespace Appointment
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<AppointmentService>();
+
+            services.Configure<AppointmentDatabaseSettings>(
+                Configuration.GetSection(nameof(MongoDatabaseSettings)));
+
+            services.AddSingleton<IAppointmentDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<AppointmentDatabaseSettings>>().Value);
 
             base.ConfigureServices(services);
             services.AddControllers();

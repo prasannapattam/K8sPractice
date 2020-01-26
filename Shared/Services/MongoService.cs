@@ -8,12 +8,13 @@ namespace Shared.Services
     public class MongoService<TModel>
         where TModel: IMongoModel
     {
-        private readonly IMongoCollection<TModel> collection;
+        protected IMongoDatabase database;
+        private IMongoCollection<TModel> collection;
 
         public MongoService(IMongoDatabaseSettings settings)
         {
             MongoClient client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            database = client.GetDatabase(settings.DatabaseName);
 
             collection = database.GetCollection<TModel>(settings.CollectionName);
         }

@@ -16,7 +16,6 @@ namespace Shared.Services
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            // requires using Microsoft.Extensions.Options
             services.Configure<MongoDatabaseSettings>(
                 Configuration.GetSection(nameof(MongoDatabaseSettings)));
 

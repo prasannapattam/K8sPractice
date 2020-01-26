@@ -6,6 +6,7 @@ import { AppointmentDialogComponent } from './appointment.dialog.component';
 import { MatTable } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AppointmentViewModel } from './appointment.view.model';
 
 @Component({
   selector: 'appointment',
@@ -13,11 +14,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./appointment.component.css'],
 })
 export class AppointmentComponent {
+  public appointmentViewModel: AppointmentViewModel;
   public appointments: Appointment[];
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
 
   constructor(private service: AppointmentService, private route: ActivatedRoute, private dialog: MatDialog) { 
-    this.appointments = this.route.snapshot.data['appointments'];
+    this.appointmentViewModel = this.route.snapshot.data['appointmentViewModel'];
+    this.appointments = this.appointmentViewModel.appointments;
   }
 
   onAdd(): void {

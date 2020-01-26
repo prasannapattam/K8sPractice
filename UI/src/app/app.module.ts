@@ -30,6 +30,7 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentResolve } from './appointment/appointment.resolve';
 import { AppointmentDialogComponent } from './appointment/appointment.dialog.component';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AppointmentDialogComponent } from './appointment/appointment.dialog.com
     AppointmentDialogComponent
   ],
   providers: [
+    AppService,
     DoctorService,
     DoctorResolve,
     PatientService,

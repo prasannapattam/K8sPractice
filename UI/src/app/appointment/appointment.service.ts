@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { Appointment } from "./appointment.model"
 import { environment } from 'src/environments/environment';
+import { AppointmentViewModel } from './appointment.view.model';
 
 
 @Injectable()
@@ -12,6 +13,10 @@ export class AppointmentService {
 
     constructor(private http: HttpClient) { }
         
+    getAppointmentViewModel(): Observable<AppointmentViewModel>  {
+        return this.http.post<AppointmentViewModel>(this.api + '/appointment/getviewmodel', {});
+    }
+
     getAppointments(): Observable<Appointment[]>  {
         return this.http.post<Appointment[]>(this.api + '/appointment/getall', {});
     }

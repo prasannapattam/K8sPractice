@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators'
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,7 @@ import { filter } from 'rxjs/operators'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public showMenu: boolean = false;
-
-  constructor(private router: Router) {
-    router.events.pipe(
-      filter(e => e instanceof NavigationEnd)
-    ).subscribe((e: NavigationEnd)  => {
-      this.showMenu = e.url == "/" ? false : true;
-      });
-
+  public abc: boolean = false;
+  constructor(public service: AppService) {
   }
 }
