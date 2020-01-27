@@ -4,6 +4,6 @@ import { Appointment } from "./appointment.model";
 
 export class AppointmentViewModel {
     appointments: Appointment[];
-    doctor: Doctor[];
-    patient: Patient[];
+    doctors: Doctor[];
+    patients: Patient[];
 }

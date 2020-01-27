@@ -7,7 +7,10 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public abc: boolean = false;
+  public showMenu: boolean = false;
   constructor(public service: AppService) {
+    this.service.menuSubject.subscribe( (show: boolean) => {
+      this.showMenu = show;
+      });
   }
 }

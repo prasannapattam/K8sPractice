@@ -7,6 +7,8 @@ import { MatTable } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppointmentViewModel } from './appointment.view.model';
+import { Doctor } from '../doctor/doctor.model';
+import { Patient } from '../patient/patient.model';
 
 @Component({
   selector: 'appointment',
@@ -16,11 +18,16 @@ import { AppointmentViewModel } from './appointment.view.model';
 export class AppointmentComponent {
   public appointmentViewModel: AppointmentViewModel;
   public appointments: Appointment[];
+  public doctors: Doctor[];
+  public patients: Patient[]
+
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
 
   constructor(private service: AppointmentService, private route: ActivatedRoute, private dialog: MatDialog) { 
     this.appointmentViewModel = this.route.snapshot.data['appointmentViewModel'];
     this.appointments = this.appointmentViewModel.appointments;
+    this.doctors = this.appointmentViewModel.doctors;
+    this.patients = this.appointmentViewModel.patients;
   }
 
   onAdd(): void {
@@ -36,10 +43,14 @@ export class AppointmentComponent {
   }
 
   showDialog(appointment: Appointment, action: string): void {
-    let data: Appointment = Object.assign({}, appointment, { action: action });
     const dialogRef = this.dialog.open(AppointmentDialogComponent, {
       width: '275px',
-      data: data
+      data: {
+        appointment: Object.assign({}, appointment),
+        action: action,
+        doctors: this.doctors ,
+        patients: this.patients
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

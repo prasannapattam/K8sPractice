@@ -3,6 +3,9 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { Appointment } from './appointment.model';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { AppointmentViewModel } from './appointment.view.model';
+import { Doctor } from '../doctor/doctor.model';
+import { Patient } from '../patient/patient.model';
 
 @Component({
   selector: 'appointment-dialog',
@@ -10,16 +13,25 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
   styleUrls: ['./appointment.dialog.component.css'],
 })
 export class AppointmentDialogComponent {
-    form: FormGroup;
+    public form: FormGroup;
+    public appointment: Appointment;
+    public doctors: Doctor[];
+    public patients: Patient[];
+    public action: string;
 
     nameFormControl: FormControl = new FormControl('', [ Validators.required ]);
 
     constructor(public fb: FormBuilder, public dialogRef: MatDialogRef<AppointmentDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public appointment: Appointment) 
-        { }
+        @Inject(MAT_DIALOG_DATA) private data) 
+        { 
+            this.appointment = data.appointment;
+            this.doctors = data.doctors;
+            this.patients = data.patients;
+            this.action = data.action;
+        }
 
     ngOnInit() {
-        let disabled: boolean = this.appointment["action"] == "delete"
+        let disabled: boolean = this.action == "delete"
         this.form = this.fb.group({
             patient: this.fb.group({
                 name: [{value: this.appointment.patient.name, disabled: disabled}, Validators.required],
