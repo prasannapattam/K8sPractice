@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AppointmentViewModel } from './appointment.view.model';
 
 @Injectable()
-export class AppointmentResolve implements Resolve<Appointment[]> {
+export class AppointmentResolve implements Resolve<AppointmentViewModel> {
 
   constructor(private service: AppointmentService) {}
 

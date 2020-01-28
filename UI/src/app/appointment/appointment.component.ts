@@ -31,7 +31,7 @@ export class AppointmentComponent {
   }
 
   onAdd(): void {
-    this.showDialog(<Appointment>{}, "add");
+    this.showDialog(<Appointment>{appointmentDate: new Date()}, "add");
   }
 
   onEdit(appointment: Appointment): void {

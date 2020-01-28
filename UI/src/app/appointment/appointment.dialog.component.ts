@@ -33,14 +33,14 @@ export class AppointmentDialogComponent {
     ngOnInit() {
         let disabled: boolean = this.action == "delete"
         this.form = this.fb.group({
-            patient: this.fb.group({
-                name: [{value: this.appointment.patient.name, disabled: disabled}, Validators.required],
-            }),
-            doctor: this.fb.group({
-                name: [{value: this.appointment.doctor.name, disabled: disabled}, Validators.required],
-            }),
+            patient: [{value: this.appointment.patient, disabled: disabled}, Validators.required],
+            doctor: [{value: this.appointment.doctor, disabled: disabled}, Validators.required],
             appointmentDate: [{value: new Date(this.appointment.appointmentDate).toISOString().substring(0,10), disabled: disabled}, Validators.required]
         });
+    }
+
+    compareIds(i1, i2){
+        return i1 != undefined && i2 != undefined && i1.id == i2.id;
     }
 
     onSave() {

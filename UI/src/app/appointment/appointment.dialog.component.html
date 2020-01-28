@@ -3,18 +3,28 @@
 <h1 mat-dialog-title *ngIf="this.action == 'delete'">Delete Appointment</h1>
 <form novalidate [formGroup]="form">
     <div mat-dialog-content>
-        <mat-form-field formGroupName="patient">
-            <input matInput placeholder="Patient Name" formControlName="name">
-            <mat-error *ngIf="form.controls['patient'].controls['name'].hasError('required')">
-                Patient Name is <strong>required</strong>
+        <mat-form-field>
+            <mat-label>Patient</mat-label>
+            <mat-select formControlName="patient" [compareWith]="compareIds">
+              <mat-option *ngFor="let patient of patients" [value]="patient">
+                {{patient.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls['patient'].hasError('required')">
+                Patient <strong>required</strong>
             </mat-error>
-        </mat-form-field>    
-        <mat-form-field formGroupName="doctor">
-            <input matInput placeholder="Doctor Name" formControlName="name">
-            <mat-error *ngIf="form.controls['doctor'].controls['name'].hasError('required')">
-                Doctor Name is <strong>required</strong>
+        </mat-form-field>   
+        <mat-form-field>
+            <mat-label>Doctor</mat-label>
+            <mat-select formControlName="doctor" [compareWith]="compareIds">
+              <mat-option *ngFor="let doctor of doctors" [value]="doctor">
+                {{doctor.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls['doctor'].hasError('required')">
+                Doctor is <strong>required</strong>
             </mat-error>
-        </mat-form-field>    
+        </mat-form-field>   
         <mat-form-field>
             <input matInput type="date" placeholder="Appointment Date" formControlName="appointmentDate">
             <mat-error *ngIf="form.controls['appointmentDate'].hasError('required')">

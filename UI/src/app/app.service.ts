@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class AppService {
-    public menuSubject : Subject = new Subject();
+    public menuSubject : Subject<boolean> = new Subject();
 
     constructor(private router: Router) {
       router.events.pipe(

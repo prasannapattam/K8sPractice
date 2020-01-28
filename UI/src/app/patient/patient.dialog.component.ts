@@ -11,15 +11,20 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 })
 export class PatientDialogComponent {
     form: FormGroup;
+    patient: Patient;
+    action: string;
 
     nameFormControl: FormControl = new FormControl('', [ Validators.required ]);
 
     constructor(public fb: FormBuilder, public dialogRef: MatDialogRef<PatientDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public patient: Patient) 
-        { }
+        @Inject(MAT_DIALOG_DATA) public data: any) 
+        { 
+            this.patient = data.patient;
+            this.action = data.action;
+        }
 
     ngOnInit() {
-        let disabled: boolean = this.patient["action"] == "delete"
+        let disabled: boolean = this.action == "delete"
         this.form = this.fb.group({
             name: [{value: this.patient.name, disabled: disabled}, Validators.required],
             phone: [{value: this.patient.phone, disabled: disabled}]

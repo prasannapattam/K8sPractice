@@ -1,6 +1,6 @@
-<h1 mat-dialog-title *ngIf="this.patient.action == 'add'">Add Patient</h1>
-<h1 mat-dialog-title *ngIf="this.patient.action == 'edit'">Edit Patient</h1>
-<h1 mat-dialog-title *ngIf="this.patient.action == 'delete'">Delete Patient</h1>
+<h1 mat-dialog-title *ngIf="this.action == 'add'">Add Patient</h1>
+<h1 mat-dialog-title *ngIf="this.action == 'edit'">Edit Patient</h1>
+<h1 mat-dialog-title *ngIf="this.action == 'delete'">Delete Patient</h1>
 <form novalidate [formGroup]="form">
     <div mat-dialog-content>
         <mat-form-field>
@@ -17,8 +17,8 @@
         </mat-form-field>    
     </div>
     <div mat-dialog-actions>
-        <button-control text="Save" icon="save" color="primary" (click)="onSave()" *ngIf="this.patient.action != 'delete'"></button-control>
-        <button-control text="Delete" icon="delete" color="warn" (click)="onSave()" *ngIf="this.patient.action == 'delete'"></button-control>
+        <button-control text="Save" icon="save" color="primary" (click)="onSave()" *ngIf="this.action != 'delete'"></button-control>
+        <button-control text="Delete" icon="delete" color="warn" (click)="onSave()" *ngIf="this.action == 'delete'"></button-control>
         <button-control text="Cancel" icon="cancel" (click)="onCancel()"></button-control>
     </div>
 </form>

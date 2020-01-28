@@ -9,10 +9,4 @@ export class ButtonControl {
   @Input() text: string;
   @Input() icon: string;
   @Input() color: string;
-
-  // @Output() click: EventEmitter<any> = new EventEmitter();
-
-  // clickEvent() {
-  //   this.click.emit(null);
-  // }
 }

@@ -33,10 +33,9 @@ export class PatientComponent {
   }
 
   showDialog(patient: Patient, action: string): void {
-    let data: Patient = Object.assign({}, patient, { action: action });
     const dialogRef = this.dialog.open(PatientDialogComponent, {
       width: '275px',
-      data: data
+      data: { patient: Object.assign({}, patient), action: action }
     });
 
     dialogRef.afterClosed().subscribe(result => {
