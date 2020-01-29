@@ -1,0 +1,1 @@
+docker build -t ehr/appointment -f ./Appointment/Dockerfile .

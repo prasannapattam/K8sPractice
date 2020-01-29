@@ -1,5 +1,5 @@
 -- Create image
-docker build -t ehr/doctor .
+docker build -t ehr/doctor -f Dockerfile ../
 
 -- Run the image
 docker run -d -p 8080:80 --name doctor ehr/doctor (-d run in background)
@@ -11,8 +11,11 @@ docker images
 
 -- Remove docker image
 docker rmi <image_id>
-docker rmi -f $(docker images -a -q) – removes all images
-docker rmi $(docker images -q -f dangling=true) -- force
+docker image prune --> removes dangling images
+docker image prune -a --> removes images that don't have containers
+
+-- list containers
+docker container ls
 
 -- stop container
 docker stop <container_name>
@@ -21,13 +24,13 @@ docker stop <container_name>
 docker start <container_name>
 
 -- running containers
-docker ps – lists all running Docker containers
-docker ps -a – lists all the attached but not running containers
+docker ps ï¿½ lists all running Docker containers
+docker ps -a ï¿½ lists all the attached but not running containers
 
 
 -- Remove docker container
 docker rm <container_name> 
-docker rm $(docker ps -a -q) – removes all containers
+docker rm $(docker ps -a -q) ï¿½ removes all containers
 
 -- login into container
 docker exec -it 782ce39021a0 bash

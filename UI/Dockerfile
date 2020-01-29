@@ -3,7 +3,7 @@
 # We label our stage as 'builder'
 FROM node:alpine as builder
 
-COPY package*.json ./
+COPY UI/package*.json ./
 
 RUN npm config set depth 0 && npm cache clean --force
 
@@ -12,7 +12,7 @@ RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 
 WORKDIR /ng-app
 
-COPY . .
+COPY UI/. .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 RUN $(npm bin)/ng build --prod --build-optimizer
@@ -23,7 +23,7 @@ RUN $(npm bin)/ng build --prod --build-optimizer
 FROM nginx:alpine
 
 ## Copy our default nginx config
-COPY nginx/default.conf /etc/nginx/conf.d/
+COPY --from=builder /ng-app/nginx/default.conf /etc/nginx/conf.d/
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*

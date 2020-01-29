@@ -1,13 +1,16 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/sdk AS build
 WORKDIR /app
 
-# Copy csproj and restore as distinct layers
-COPY *.csproj ./
+# Shared
+WORKDIR /app/Shared
+COPY ./Shared/. ./
+
+WORKDIR /app/patient
+COPY ./Patient/*.csproj ./
 RUN dotnet restore
 
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY ./Patient/. ./
+RUN dotnet publish -c Release -o /app/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet AS runtime

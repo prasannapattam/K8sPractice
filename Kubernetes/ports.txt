@@ -1,0 +1,15 @@
+
+Ports
+
+8080 - UI
+8081 - Doctor
+8082 - Patient
+8083 - Appointment
+8085 - Gateway
+
+
+27011- mongo-0
+	- doctor
+29012- mongo-1
+	- Patient
+	

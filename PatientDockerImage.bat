@@ -1,0 +1,1 @@
+docker build -t ehr/patient -f ./Patient/Dockerfile .

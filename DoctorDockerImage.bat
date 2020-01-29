@@ -1,0 +1,1 @@
+docker build -t ehr/doctor -f ./Doctor/Dockerfile .

@@ -35,3 +35,7 @@ Executing command on a pod
 kubectl exec -it <pod name> <cmd>
 
 
+Utils
+-----
+kubectl run --generator=run-pod/v1 --rm utils -it --image arunvelsriram/utils bash
+kubectl run --generator=run-pod/v1 --rm utils -it --image eddiehale/utils bash

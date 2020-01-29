@@ -1,6 +1,9 @@
-﻿dist
-node_modules
+﻿**/bin/
+**/obj/
 **/Dockerfile*
 **/.dockerignore*
-**/Dockerfile*
+**/*.user
 **/.git*
+
+**/dist/
+**/node_modules/
