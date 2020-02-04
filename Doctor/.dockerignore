@@ -1,9 +1,0 @@
-﻿**/bin/
-**/obj/
-**/Dockerfile*
-**/.dockerignore*
-**/*.user
-**/.git*
-
-**/dist/
-**/node_modules/

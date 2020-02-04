@@ -33,7 +33,7 @@ kubectl get deployments -o wide
 Executing command on a pod
 ---------------------------
 kubectl exec -it <pod name> <cmd>
-
+kubectl exec -it <pod name> sh
 
 Utils
 -----

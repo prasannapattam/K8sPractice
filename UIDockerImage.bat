@@ -1,1 +1,0 @@
-docker build -t ehr/ui -f ./UI/Dockerfile .
