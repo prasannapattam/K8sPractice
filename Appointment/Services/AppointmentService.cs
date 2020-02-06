@@ -31,5 +31,15 @@ namespace Appointment.Services
 
         public List<PatientModel> GetPatients() =>
             patientCollection.Find(m => true).ToList();
+
+        public void Initialize()
+        {
+            doctorCollection.DeleteMany(m => true);
+            doctorCollection.InsertOne(new DoctorModel() { Id = "5e2a863f89e6ad5890addc8a", Name = "Praval" });
+            doctorCollection.InsertOne(new DoctorModel() { Id = "5e2a865289e6ad5890addc8b", Name = "Prakul" });
+
+            patientCollection.DeleteMany(m => true);
+            patientCollection.InsertOne(new PatientModel() { Id = "5e2984378b793f29cc30f1b4", Name = "Ninja" });
+        }
     }
 }

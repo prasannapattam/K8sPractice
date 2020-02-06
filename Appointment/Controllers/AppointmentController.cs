@@ -52,5 +52,12 @@ namespace Appointment.Controllers
             service.Remove(model.Id);
             return GetAll();
         }
+
+        [HttpPost]
+        public AppointmentViewModel Initialize()
+        {
+            service.Initialize();
+            return GetViewModel();
+        }
     }
 }

@@ -27,4 +27,8 @@ export class DoctorService {
     deleteDoctor(doctor: Doctor): Observable<Doctor[]> {
         return this.http.post<Doctor[]>(this.api + '/doctor/delete', doctor)
     }
+
+    initializeData(): Observable<Doctor[]>  {
+        return this.http.post<Doctor[]>(this.api + '/doctor/initialize', {});
+    }
 }

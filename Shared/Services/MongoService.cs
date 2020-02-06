@@ -39,5 +39,8 @@ namespace Shared.Services
 
         public void Remove(string id) =>
             collection.DeleteOne(m => m.Id == id);
+
+        public void RemoveAll() =>
+            collection.DeleteMany(m => true);
     }
 }

@@ -32,4 +32,8 @@ export class AppointmentService {
     deleteAppointment(appointment: Appointment): Observable<Appointment[]> {
         return this.http.post<Appointment[]>(this.api + '/appointment/delete', appointment)
     }
+
+    initializeData(): Observable<AppointmentViewModel>  {
+        return this.http.post<AppointmentViewModel>(this.api + '/appointment/initialize', {});
+    }
 }

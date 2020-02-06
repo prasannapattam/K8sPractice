@@ -48,5 +48,12 @@ namespace Patient.Controllers
             service.Remove(model.Id);
             return GetAll();
         }
+
+        [HttpPost]
+        public List<PatientModel> Initialize()
+        {
+            service.Initialize();
+            return GetAll();
+        }
     }
 }

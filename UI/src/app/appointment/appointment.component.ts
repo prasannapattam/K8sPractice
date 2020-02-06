@@ -30,6 +30,20 @@ export class AppointmentComponent {
     this.patients = this.appointmentViewModel.patients;
   }
 
+  onDataInitialize(): void {
+    if(confirm("Delete and reinitialize data?")) {
+      this.service.initializeData()
+      .subscribe(appointmentViewModel => {
+        this.appointments = appointmentViewModel.appointments;
+        this.doctors = appointmentViewModel.doctors;
+        this.patients = appointmentViewModel.patients;
+
+        this.table.dataSource = this.appointments;
+        this.table.renderRows();
+        });
+    }
+  }
+
   onAdd(): void {
     this.showDialog(<Appointment>{appointmentDate: new Date()}, "add");
   }

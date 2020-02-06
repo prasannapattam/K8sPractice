@@ -20,6 +20,16 @@ export class PatientComponent {
     this.patients = this.route.snapshot.data['patients'];
   }
 
+  onDataInitialize(): void {
+    if(confirm("Delete and reinitialize data?")) {
+      this.service.initializeData()
+      .subscribe(patients => {
+        this.table.dataSource = patients;
+        this.table.renderRows();
+        });
+    }
+  }
+
   onAdd(): void {
     this.showDialog(<Patient>{}, "add");
   }
