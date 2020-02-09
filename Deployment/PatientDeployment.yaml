@@ -16,7 +16,7 @@ spec:
         spec:
             containers:
                 -   name: patient
-                    image: ehr/patient
+                    image: pprasanna/ehr-patient
                     imagePullPolicy: IfNotPresent
                     ports:
                     -   containerPort: 80

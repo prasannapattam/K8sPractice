@@ -1,11 +1,13 @@
 ﻿**/bin/
 **/obj/
-**/Dockerfile*
-**/.dockerignore*
+**/Dockerfile
+**/.dockerignore
 **/*.user
-**/.git*
+**/.git
+**/.git
 
 **/dist/
+**/e2e/
 **/node_modules/
 
 **/MongoDB/

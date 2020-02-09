@@ -16,7 +16,7 @@ spec:
         spec:
             containers:
                 -   name: appointment
-                    image: ehr/appointment
+                    image: pprasanna/ehr-appointment
                     imagePullPolicy: IfNotPresent
                     ports:
                     -   containerPort: 80
