@@ -1,4 +1,4 @@
-docker push pprasanna/ehr-doctor
-docker push pprasanna/ehr-patient
-docker push pprasanna/ehr-appointment
-docker push pprasanna/ehr-ui
+docker push pprasanna/ehr-doctor:latest
+docker push pprasanna/ehr-patient:latest
+docker push pprasanna/ehr-appointment:latest
+docker push pprasanna/ehr-ui:latest

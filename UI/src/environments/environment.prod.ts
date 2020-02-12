@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  doctorAPI: 'http://localhost:8081',
-  patientAPI: 'http://localhost:8082',
-  appointmentAPI: 'http://localhost:8083'
+  doctorAPI: 'http://13.88.140.104:8081',
+  patientAPI: 'http://13.88.137.221:8082',
+  appointmentAPI: 'http://13.88.139.242:8083'
 };

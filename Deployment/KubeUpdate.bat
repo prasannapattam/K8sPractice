@@ -1,0 +1,1 @@
+kubectl set image deployments/ui-deployment ui=pprasanna/ehr-ui:latest

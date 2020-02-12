@@ -3,8 +3,9 @@
 **/Dockerfile
 **/.dockerignore
 **/*.user
-**/.git
-**/.git
+**/.vs/
+**/.git*
+**/.editorconfig
 
 **/dist/
 **/e2e/

@@ -17,7 +17,7 @@ spec:
             containers:
                 -   name: ui
                     image: pprasanna/ehr-ui
-                    imagePullPolicy: IfNotPresent
+                    imagePullPolicy: Always
                     ports:
                     -   containerPort: 80
 ---
