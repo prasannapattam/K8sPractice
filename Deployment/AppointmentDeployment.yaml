@@ -31,5 +31,5 @@ spec:
     type: LoadBalancer
     ports:
         -   name: appointment-port
-            port: 8083
+            port: 8013
             targetPort: 80

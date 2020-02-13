@@ -31,5 +31,5 @@ spec:
     type: LoadBalancer
     ports:
         -   name: ui-port
-            port: 8080
+            port: 8010
             targetPort: 80

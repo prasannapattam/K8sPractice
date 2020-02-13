@@ -31,5 +31,5 @@ spec:
     type: LoadBalancer
     ports:
         -   name: doctor-port
-            port: 8081
+            port: 8011
             targetPort: 80

@@ -31,5 +31,5 @@ spec:
     type: LoadBalancer
     ports:
         -   name: patient-port
-            port: 8082
+            port: 8012
             targetPort: 80

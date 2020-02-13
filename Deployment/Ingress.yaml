@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ehr
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ui-service
+              servicePort: 8010
+          - path: /doctor
+            backend:
+              serviceName: doctor-service
+              servicePort: 8011              
+          - path: /patient
+            backend:
+              serviceName: patient-service
+              servicePort: 8012
+          - path: /appointment
+            backend:
+              serviceName: appointment-service
+              servicePort: 8011                                          

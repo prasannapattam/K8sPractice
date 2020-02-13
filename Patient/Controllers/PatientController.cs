@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Patient.Controllers
 {
     [ApiController]
-    [Route("{controller=doctor}/{action=index}")]
+    [Route("{controller=patient}/{action=index}")]
     public class PatientController : ControllerBase
     {
         private readonly PatientService service;

@@ -39,3 +39,8 @@ Utils
 -----
 kubectl run --generator=run-pod/v1 --rm utils -it --image arunvelsriram/utils bash
 kubectl run --generator=run-pod/v1 --rm utils -it --image eddiehale/utils bash
+
+
+Kubernetes updates
+------------------
+
